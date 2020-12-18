@@ -6,7 +6,7 @@ export default (reducers) => {
     {
       key: "bellaweb",
       storage,
-      whitelist: ["auth", "list"],
+      whitelist: ["auth"],
     },
     reducers
   );

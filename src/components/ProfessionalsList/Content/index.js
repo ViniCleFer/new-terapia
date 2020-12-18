@@ -21,7 +21,7 @@ function Content() {
 
   useEffect(() => {
     dispatch(getAllProfessionalsRequest());
-  }, []);
+  }, [professionals]);
 
   return (
     <Accordion className="accordionprimeiro" defaultIndex={[0]} allowMultiple={true} backgroundColor="#f1f0ef">
