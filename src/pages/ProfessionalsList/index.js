@@ -1,7 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, {useEffect} from "react";
-import { useDispatch } from "react-redux";
-
+import React from "react";
 import { Grid } from "@chakra-ui/core";
 
 import TopSidebar from "../../components/ProfessionalsList/TopSideBar";
@@ -9,13 +7,7 @@ import Content from "../../components/ProfessionalsList/Content";
 import BodyBar from "../../components/ProfessionalsList/BodyBar";
 import SideBar from "../../components/ProfessionalsList/Sidebar";
 
-import {
-  getAllProfessionalsRequest,
-} from "../../store/modules/professionals/actions";
-
 export default function ProfessionalsList() {
-  const dispatch = useDispatch();
-
   return (
     <Grid
       height="100vh"
