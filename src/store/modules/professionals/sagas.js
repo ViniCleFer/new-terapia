@@ -4,7 +4,7 @@ import axios from "axios";
 
 import baseUrl from "../../../services/baseUrl";
 
-import { getAllProfessionalsSuccess } from "./actions";
+import { getAllProfessionalsSuccess, getAllProfessionalsRequest } from "./actions";
 
 export function* getProfessionals({ payload }) {
 
@@ -46,6 +46,8 @@ export function* changeProfessionalsStatus({ payload }) {
       axios.put,
       `${baseUrl.TERAPIA_BELLA}/professional/status?professionalId=${payload.professionalId}&active=${payload.professionalStatus}`,
     );
+    yield put(getAllProfessionalsRequest())
+    // window.location.reload();
   } catch (error) {
     if (error.response) {
       // console.tron.log(error.response, 'Erro getProfessionals');
