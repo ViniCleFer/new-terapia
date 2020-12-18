@@ -11,7 +11,7 @@ function BodyBar() {
 
   function handleGoBack() {
     dispatch(clearProfileById());
-    history.push("/professionals");
+    history.push("professionals");
   }
 
   return (
