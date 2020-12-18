@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+/* eslint-disable react-hooks/exhaustive-deps */
+import React from "react";
+import { ToastContainer } from "react-toastify";
+import { Router } from "react-router-dom";
+import { PersistGate } from "redux-persist/integration/react";
+import { Provider } from "react-redux";
+import ThemeContainer from "../src/context/theme/ThemeContainer";
+import { Global, css } from "@emotion/core";
 
-function App() {
+import "./config/ReactotronConfig";
+
+import Routes from "./routes/index";
+import history from "./services/history";
+
+import { store, persistor } from "./store";
+
+import GlobalStyle from "./styles/global";
+
+const StyleForChakra = css`
+  .js-focus-visible :focus:not([data-focus-visible-added]) {
+    outline: none;
+    box-shadow: none;
+  }
+`;
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeContainer>
+      <Provider store={store}>
+          <PersistGate persistor={persistor}>
+            <Router history={history}>
+              <Routes />
+              <GlobalStyle />
+              <Global styles={StyleForChakra} />
+              <ToastContainer autoClose={3000} />
+            </Router>
+          </PersistGate>
+      </Provider>
+    </ThemeContainer>
   );
 }
-
-export default App;
