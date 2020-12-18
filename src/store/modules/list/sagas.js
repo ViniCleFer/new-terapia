@@ -37,14 +37,14 @@ export function* getHistoryCalls({ payload }) {
     );
 
     if (response.status === 200) {
-      console.tron.log(response, payload);
+      // console.tron.log(response, payload);
       yield put(setHistoryCalls(response.data));
     }
   } catch (err) {}
 }
 
 export function* getProfileById({ payload }) {
-  console.tron.log(payload);
+  // console.tron.log(payload);
   try {
     const response = yield call(
       axios.get,

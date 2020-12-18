@@ -26,7 +26,7 @@ export function* getProfessionals({ payload }) {
     }
   } catch (error) {
     if (error.response) {
-      console.tron.log(error.response, 'Erro getProfessionals');
+      // console.tron.log(error.response, 'Erro getProfessionals');
       toast.error("Falha na autenticaçao, verifique seus dados");
     }
   }
@@ -40,7 +40,7 @@ export function* changeProfessionalsStatus({ payload }) {
 
     axios.defaults.headers.Authorization = `Bearer ${token}`;
 
-    console.tron.log(payload, 'PAYLOAD');
+    // console.tron.log(payload, 'PAYLOAD');
 
     yield call(
       axios.put,
@@ -48,7 +48,7 @@ export function* changeProfessionalsStatus({ payload }) {
     );
   } catch (error) {
     if (error.response) {
-      console.tron.log(error.response, 'Erro getProfessionals');
+      // console.tron.log(error.response, 'Erro getProfessionals');
       toast.error("Falha na autenticaçao, verifique seus dados");
     }
   }

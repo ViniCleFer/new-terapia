@@ -15,9 +15,6 @@ import {
 
 export default function ProfessionalsList() {
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getAllProfessionalsRequest());
-  }, []);
 
   return (
     <Grid

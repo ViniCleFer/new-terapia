@@ -24,7 +24,7 @@ export function* getSpecialties() {
       yield put(getSpecialtiesSuccess({specialties: response.data}));
     }
   } catch (error) {
-    console.tron.log(error.response, 'getSpecialties');
+    // // console.tron.log(error.response, 'getSpecialties');
   }
 }
 
@@ -43,7 +43,7 @@ export function* getCategories({payload}) {
       yield put(getCategoriesSuccess({categories: response.data}));
     }
   } catch (error) {
-    console.tron.log(error.response, 'getCategories');
+    // console.tron.log(error.response, 'getCategories');
   }
 }
 
@@ -61,7 +61,7 @@ export function* getSubjects() {
       yield put(getSubjectsSuccess({subjects: response.data}));
     }
   } catch (error) {
-    console.tron.log(error.response, 'getSubjects');
+    // console.tron.log(error.response, 'getSubjects');
   }
 }
 
@@ -80,7 +80,7 @@ export function* getTabButtons({payload}) {
       yield put(getTabButtonsSuccess({tabButtons: response.data}));
     }
   } catch (error) {
-    console.tron.log(error.response, 'getTabButtons');
+    // console.tron.log(error.response, 'getTabButtons');
   }
 }
 
@@ -101,7 +101,7 @@ export function* getButtonsActions({payload}) {
       yield put(getButtonsActionsSuccess({buttonActions: response.data}));
     }
   } catch (error) {
-    console.tron.log(error.response, 'getButtonsActions');
+    // console.tron.log(error.response, 'getButtonsActions');
   }
 }
 
@@ -118,7 +118,7 @@ export function* setSpecialtySelected({payload}) {
       `${baseUrl.BELLA}/specialty/${specialtyId}/user/${userId}`,
     );
   } catch (error) {
-    console.tron.log(error.response, 'setSpecialtySelected');
+    // console.tron.log(error.response, 'setSpecialtySelected');
   }
 }
 

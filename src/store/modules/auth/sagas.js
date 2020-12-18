@@ -59,7 +59,7 @@ export function* signIn({ payload }) {
     }
   } catch (error) {
     if (error.response) {
-      console.tron.log(error.response);
+      // console.tron.log(error.response);
       toast.error("Falha na autenticação, verifique seus dados");
     }
   }
@@ -83,7 +83,7 @@ export function* requestCreateProfile({payload}) {
       }
     }
   } catch (error) {
-    console.tron.log(error.response, 'getProfileByPhoneNumber');
+    // console.tron.log(error.response, 'getProfileByPhoneNumber');
 
     if (error.response) {
       switch (error.response.status) {
@@ -91,20 +91,20 @@ export function* requestCreateProfile({payload}) {
           yield put(cancelLoading());
           break;
         case 404:
-          console.tron.log(error.response, 'erro 404, bora');
+          // console.tron.log(error.response, 'erro 404, bora');
           try {
             const responseEmail = yield call(
               axios.get,
               `${baseUrl.TERAPIA_BELLA}/profile/register/verify-non-existent-email?email=${payload.email}`,
             );
-            console.tron.log({responseEmail});
+            // console.tron.log({responseEmail});
             if (responseEmail.status === 200) {
               try {
                 const responseDoc = yield call(
                   axios.get,
                   `${baseUrl.TERAPIA_BELLA}/profile/register/verify-non-existent-doc?doc=${payload.doc}`,
                 );
-                console.tron.log({responseDoc});
+                // console.tron.log({responseDoc});
                 if (responseDoc.status === 200) {
                   try {
                     const responseSignUp = yield call(apiTerapia.post, `${baseUrl.TERAPIA_AUTH}/signup`, {
@@ -125,7 +125,7 @@ export function* requestCreateProfile({payload}) {
                           }
                         );
 
-                        console.tron.log(responseToken, 'response');
+                        // console.tron.log(responseToken, 'response');
         
                         const {
                           access_token: token, userId,
@@ -141,7 +141,7 @@ export function* requestCreateProfile({payload}) {
                         if (responseToken.status === 200) {
                           yield put(setFCMToken(payload.fmcToken, userId));
 
-                          console.tron.log(payload.avatar);
+                          // console.tron.log(payload.avatar);
 
                           if (payload.avatar === '') {
                             payload.avatar = `https://ui-avatars.com/api/?background=6B8BC8&color=fff&&name=${payload.name}`;
@@ -210,7 +210,7 @@ export function* requestCreateProfile({payload}) {
                                 if (payload.avatar !== '') {
                                   removeAvatar(payload.avatar);
                                 }
-                                console.tron.log(error.response, 'Error responseProfProfile');
+                                // console.tron.log(error.response, 'Error responseProfProfile');
                                 yield put(cancelLoading());
                                 yield put(availableButtons(true));
                                 if (error.response) {
@@ -231,11 +231,11 @@ export function* requestCreateProfile({payload}) {
                             if (payload.avatar !== '') {
                               removeAvatar(payload.avatar);
                             }
-                            console.tron.log(error, 'Error responseProfile');
+                            // console.tron.log(error, 'Error responseProfile');
                             yield put(availableButtons(true));
                             yield put(cancelLoading());
                             if (error.response) {
-                              console.tron.log(error.response);
+                              // console.tron.log(error.response);
                               switch (error.response.status) {
                                 case 500:
                                   break;
@@ -253,7 +253,7 @@ export function* requestCreateProfile({payload}) {
                         if (payload.avatar !== '') {
                           removeAvatar(payload.avatar);
                         }
-                        console.tron.log(error, 'Error responseToken');
+                        // console.tron.log(error, 'Error responseToken');
                         console.log(error, 'Error responseToken');
                         yield put(cancelLoading());
                         yield put(availableButtons(true));
@@ -275,7 +275,7 @@ export function* requestCreateProfile({payload}) {
                     if (payload.avatar !== '') {
                       removeAvatar(payload.avatar);
                     }
-                    console.tron.log(error.response, 'Error responseSignUp');
+                    // console.tron.log(error.response, 'Error responseSignUp');
                     yield put(cancelLoading());
                     yield put(availableButtons(true));
                     if (error.response) {
@@ -303,7 +303,7 @@ export function* requestCreateProfile({payload}) {
                 }
                 yield put(cancelLoading());
                 yield put(availableButtons(true));
-                console.tron.log(error.response, 'API AUTH DOC requestCreateProfile');
+                // console.tron.log(error.response, 'API AUTH DOC requestCreateProfile');
         
                 if (error.response) {
                   switch (error.response.status) {
@@ -335,7 +335,7 @@ export function* requestCreateProfile({payload}) {
             }
             yield put(availableButtons(true));
             yield put(cancelLoading());
-            console.tron.log(error.response, 'API AUTH EMAIL requestCreateProfile');
+            // console.tron.log(error.response, 'API AUTH EMAIL requestCreateProfile');
         
             if (error.response) {
               switch (error.response.status) {
@@ -364,7 +364,7 @@ export function* requestCreateProfile({payload}) {
           yield put(cancelLoading());
           break;
         case 'Network':
-          console.tron.log('Possível erro de CORS');
+          // console.tron.log('Possível erro de CORS');
           break;
         default:
           break;
@@ -385,7 +385,7 @@ export function* requestCreateProfile({payload}) {
 export function* requestUpdateProfile({payload}) {
   // const birthdateValid = DateHelper.formatDateToPersist(birthDate);
 
-  console.tron.log(payload, 'requestUpdateProfile');
+  // console.tron.log(payload, 'requestUpdateProfile');
 
 
   const tokenn = (state) => state.auth.token;
@@ -411,8 +411,8 @@ export function* requestUpdateProfile({payload}) {
   // const kkkk = avatar.target.files[0];
   // const hhhh = newAvavatr.target.files[0];
 
-  // console.tron.log(kkkk, 'kkkk');
-  // console.tron.log(hhhh, 'hhhh');
+  // // console.tron.log(kkkk, 'kkkk');
+  // // console.tron.log(hhhh, 'hhhh');
 
   if (oldPhone === payload.profile.phoneNumber) {
     phone = payload.profile.phoneNumber;
@@ -458,7 +458,7 @@ export function* requestUpdateProfile({payload}) {
             },
           );
       
-          // console.tron.log({responseProfileUpdate});
+          // // console.tron.log({responseProfileUpdate});
           // console.log({responseProfileUpdate});
       
           if (responseProfileUpdate.status === 201) {
@@ -480,7 +480,7 @@ export function* requestUpdateProfile({payload}) {
                 },
               );
               
-              // console.tron.log({responseProfProfileUpdate});
+              // // console.tron.log({responseProfProfileUpdate});
               // console.log({responseProfProfileUpdate});
       
               if (responseProfProfileUpdate.status === 202) {
@@ -494,7 +494,7 @@ export function* requestUpdateProfile({payload}) {
               if (payload.profile.avatar !== oldAvatar) {
                 removeAvatar(avatar);
               }
-              console.tron.log(error.response, 'Error responseProfProfile');
+              // console.tron.log(error.response, 'Error responseProfProfile');
               yield put(cancelLoading());
               yield put(availableButtons(true));
               if (error.response) {
@@ -518,10 +518,10 @@ export function* requestUpdateProfile({payload}) {
           if (payload.profile.avatar !== oldAvatar) {
             removeAvatar(avatar);
           }
-          console.tron.log(error.response, 'UPDATE responseProfileUpdate');
+          // console.tron.log(error.response, 'UPDATE responseProfileUpdate');
           yield put(availableButtons(true));
           if (error.response) {
-            console.tron.log(error.response);
+            // console.tron.log(error.response);
             switch (error.response.status) {
               case 500:
                 break;
@@ -579,7 +579,7 @@ export function* requestUpdateProfile({payload}) {
                 },
               );
           
-              // console.tron.log({responseProfileUpdate});
+              // // console.tron.log({responseProfileUpdate});
               // console.log({responseProfileUpdate});
           
               if (responseProfileUpdate.status === 201) {
@@ -601,7 +601,7 @@ export function* requestUpdateProfile({payload}) {
                     },
                   );
                   
-                  // console.tron.log({responseProfProfileUpdate});
+                  // // console.tron.log({responseProfProfileUpdate});
                   // console.log({responseProfProfileUpdate});
           
                   if (responseProfProfileUpdate.status === 202) {
@@ -615,7 +615,7 @@ export function* requestUpdateProfile({payload}) {
                   if (payload.profile.avatar !== oldAvatar) {
                     removeAvatar(avatar);
                   }
-                  console.tron.log(error.response, 'Error responseProfProfile');
+                  // console.tron.log(error.response, 'Error responseProfProfile');
                   yield put(cancelLoading());
                   yield put(availableButtons(true));
                   if (error.response) {
@@ -639,10 +639,10 @@ export function* requestUpdateProfile({payload}) {
               if (payload.profile.avatar !== oldAvatar) {
                 removeAvatar(avatar);
               }
-              console.tron.log(error.response, 'UPDATE responseProfileUpdate');
+              // console.tron.log(error.response, 'UPDATE responseProfileUpdate');
               yield put(availableButtons(true));
               if (error.response) {
-                console.tron.log(error.response);
+                // console.tron.log(error.response);
                 switch (error.response.status) {
                   case 500:
                     break;
@@ -660,7 +660,7 @@ export function* requestUpdateProfile({payload}) {
           if (payload.profile.avatar !== oldAvatar) {
             removeAvatar(avatar);
           }
-          console.tron.log(error.response, 'UPDATE responseEmail');
+          // console.tron.log(error.response, 'UPDATE responseEmail');
           yield put(cancelLoading());
     
           if (error.response) {
@@ -735,7 +735,7 @@ export function* requestUpdateProfile({payload}) {
                 },
               );
           
-              // console.tron.log({responseProfileUpdate});
+              // // console.tron.log({responseProfileUpdate});
               // console.log({responseProfileUpdate});
           
               if (responseProfileUpdate.status === 201) {
@@ -757,7 +757,7 @@ export function* requestUpdateProfile({payload}) {
                     },
                   );
                   
-                  // console.tron.log({responseProfProfileUpdate});
+                  // // console.tron.log({responseProfProfileUpdate});
                   // console.log({responseProfProfileUpdate});
           
                   if (responseProfProfileUpdate.status === 202) {
@@ -771,7 +771,7 @@ export function* requestUpdateProfile({payload}) {
                   if (payload.profile.avatar !== oldAvatar) {
                     removeAvatar(avatar);
                   }
-                  console.tron.log(error.response, 'Error responseProfProfile');
+                  // console.tron.log(error.response, 'Error responseProfProfile');
                   yield put(cancelLoading());
                   yield put(availableButtons(true));
                   if (error.response) {
@@ -795,10 +795,10 @@ export function* requestUpdateProfile({payload}) {
               if (payload.profile.avatar !== oldAvatar) {
                 removeAvatar(avatar);
               }
-              console.tron.log(error.response, 'UPDATE responseProfileUpdate');
+              // console.tron.log(error.response, 'UPDATE responseProfileUpdate');
               yield put(availableButtons(true));
               if (error.response) {
-                console.tron.log(error.response);
+                // console.tron.log(error.response);
                 switch (error.response.status) {
                   case 500:
                     break;
@@ -856,7 +856,7 @@ export function* requestUpdateProfile({payload}) {
                     },
                   );
               
-                  // console.tron.log({responseProfileUpdate});
+                  // // console.tron.log({responseProfileUpdate});
                   // console.log({responseProfileUpdate});
               
                   if (responseProfileUpdate.status === 201) {
@@ -878,7 +878,7 @@ export function* requestUpdateProfile({payload}) {
                         },
                       );
                       
-                      // console.tron.log({responseProfProfileUpdate});
+                      // // console.tron.log({responseProfProfileUpdate});
                       // console.log({responseProfProfileUpdate});
               
                       if (responseProfProfileUpdate.status === 202) {
@@ -892,7 +892,7 @@ export function* requestUpdateProfile({payload}) {
                       if (payload.profile.avatar !== oldAvatar) {
                         removeAvatar(avatar);
                       }
-                      console.tron.log(error.response, 'Error responseProfProfile');
+                      // console.tron.log(error.response, 'Error responseProfProfile');
                       yield put(cancelLoading());
                       yield put(availableButtons(true));
                       if (error.response) {
@@ -916,10 +916,10 @@ export function* requestUpdateProfile({payload}) {
                   if (payload.profile.avatar !== oldAvatar) {
                     removeAvatar(avatar);
                   }
-                  console.tron.log(error.response, 'UPDATE responseProfileUpdate');
+                  // console.tron.log(error.response, 'UPDATE responseProfileUpdate');
                   yield put(availableButtons(true));
                   if (error.response) {
-                    console.tron.log(error.response);
+                    // console.tron.log(error.response);
                     switch (error.response.status) {
                       case 500:
                         break;
@@ -937,7 +937,7 @@ export function* requestUpdateProfile({payload}) {
               if (payload.profile.avatar !== oldAvatar) {
                 removeAvatar(avatar);
               }
-              console.tron.log(error.response, 'UPDATE responseEmail');
+              // console.tron.log(error.response, 'UPDATE responseEmail');
               yield put(cancelLoading());
         
               if (error.response) {
@@ -966,7 +966,7 @@ export function* requestUpdateProfile({payload}) {
           }
         }
       } catch (error) {
-        console.tron.log(error.response, 'UPDATE responseDoc');
+        // console.tron.log(error.response, 'UPDATE responseDoc');
         if (payload.profile.avatar !== oldAvatar) {
           removeAvatar(avatar);
         }
@@ -1012,14 +1012,14 @@ export function* requestUpdateProfile({payload}) {
       if (payload.profile.avatar !== oldAvatar) {
         removeAvatar(avatar);
       }
-      console.tron.log(error.response, 'UPDATE responsePhone');
+      // console.tron.log(error.response, 'UPDATE responsePhone');
 
       if (error.response) {
         switch (error.response.status) {
           case 500:
             break;
           case 404:
-            console.tron.log(error.response, 'erro 404, bora');
+            // console.tron.log(error.response, 'erro 404, bora');
             phone = payload.profile.phoneNumber;
 
             if (oldDoc === payload.profile.doc) {
@@ -1072,7 +1072,7 @@ export function* requestUpdateProfile({payload}) {
                         },
                       );
                   
-                      // console.tron.log({responseProfileUpdate});
+                      // // console.tron.log({responseProfileUpdate});
                       // console.log({responseProfileUpdate});
                   
                       if (responseProfileUpdate.status === 201) {
@@ -1094,7 +1094,7 @@ export function* requestUpdateProfile({payload}) {
                             },
                           );
                           
-                          // console.tron.log({responseProfProfileUpdate});
+                          // // console.tron.log({responseProfProfileUpdate});
                           // console.log({responseProfProfileUpdate});
                   
                           if (responseProfProfileUpdate.status === 202) {
@@ -1108,7 +1108,7 @@ export function* requestUpdateProfile({payload}) {
                           if (payload.profile.avatar !== oldAvatar) {
                             removeAvatar(avatar);
                           }
-                          console.tron.log(error.response, 'Error responseProfProfile');
+                          // console.tron.log(error.response, 'Error responseProfProfile');
                           yield put(cancelLoading());
                           yield put(availableButtons(true));
                           if (error.response) {
@@ -1132,10 +1132,10 @@ export function* requestUpdateProfile({payload}) {
                       if (payload.profile.avatar !== oldAvatar) {
                         removeAvatar(avatar);
                       }
-                      console.tron.log(error.response, 'UPDATE responseProfileUpdate');
+                      // console.tron.log(error.response, 'UPDATE responseProfileUpdate');
                       yield put(availableButtons(true));
                       if (error.response) {
-                        console.tron.log(error.response);
+                        // console.tron.log(error.response);
                         switch (error.response.status) {
                           case 500:
                             break;
@@ -1153,7 +1153,7 @@ export function* requestUpdateProfile({payload}) {
                   if (payload.profile.avatar !== oldAvatar) {
                     removeAvatar(avatar);
                   }
-                  console.tron.log(error.response, 'UPDATE responseEmail');
+                  // console.tron.log(error.response, 'UPDATE responseEmail');
                   yield put(cancelLoading());
             
                   if (error.response) {
@@ -1237,7 +1237,7 @@ export function* requestUpdateProfile({payload}) {
                             },
                           );
                       
-                          // console.tron.log({responseProfileUpdate});
+                          // // console.tron.log({responseProfileUpdate});
                           // console.log({responseProfileUpdate});
                       
                           if (responseProfileUpdate.status === 201) {
@@ -1259,7 +1259,7 @@ export function* requestUpdateProfile({payload}) {
                                 },
                               );
                               
-                              // console.tron.log({responseProfProfileUpdate});
+                              // // console.tron.log({responseProfProfileUpdate});
                               // console.log({responseProfProfileUpdate});
                       
                               if (responseProfProfileUpdate.status === 202) {
@@ -1273,7 +1273,7 @@ export function* requestUpdateProfile({payload}) {
                               if (payload.profile.avatar !== oldAvatar) {
                                 removeAvatar(avatar);
                               }
-                              console.tron.log(error.response, 'Error responseProfProfile');
+                              // console.tron.log(error.response, 'Error responseProfProfile');
                               yield put(cancelLoading());
                               yield put(availableButtons(true));
                               if (error.response) {
@@ -1297,10 +1297,10 @@ export function* requestUpdateProfile({payload}) {
                           if (payload.profile.avatar !== oldAvatar) {
                             removeAvatar(avatar);
                           }
-                          console.tron.log(error.response, 'UPDATE responseProfileUpdate');
+                          // console.tron.log(error.response, 'UPDATE responseProfileUpdate');
                           yield put(availableButtons(true));
                           if (error.response) {
-                            console.tron.log(error.response);
+                            // console.tron.log(error.response);
                             switch (error.response.status) {
                               case 500:
                                 break;
@@ -1318,7 +1318,7 @@ export function* requestUpdateProfile({payload}) {
                       if (payload.profile.avatar !== oldAvatar) {
                         removeAvatar(avatar);
                       }
-                      console.tron.log(error.response, 'UPDATE responseEmail');
+                      // console.tron.log(error.response, 'UPDATE responseEmail');
                       yield put(cancelLoading());
                 
                       if (error.response) {
@@ -1347,7 +1347,7 @@ export function* requestUpdateProfile({payload}) {
                   }
                 }
               } catch (error) {
-                console.tron.log(error.response, 'UPDATE responseDoc');
+                // console.tron.log(error.response, 'UPDATE responseDoc');
                 if (payload.profile.avatar !== oldAvatar) {
                   removeAvatar(avatar);
                 }
