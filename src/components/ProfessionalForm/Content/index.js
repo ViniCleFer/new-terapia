@@ -474,438 +474,439 @@ export default function Content() {
   ]);
 
   return (
-        <form onSubmit={onSubmit}>
-          <Grid
-            templateColumns="1fr 1fr 1fr "
-            gap={3}
-            backgroundColor="#f1f0ef"
-          >
-            <Flex direction="column" align="flex-start" width="400px" padding="10px">
-              <Heading marginBottom={-5} color="gray.600" fontWeight="500" size="md"padding="5px" mb="-15px">
-                Nome
-              </Heading>
-              <FormControl isInvalid={errorName}>
-              <Input
-                name="name"
-                onChange={(t) => setName(t.target.value)}
-                value={name}
-                type="text"
-                placeholder="Nome Completo"
-                errorBorderColor="crimson"
-                align="center"
-                onBlur={() => handleNameError()}
-                width="400px"
-                mt="15px"
-              />
-              <FormErrorMessage>Nome é obrigatório</FormErrorMessage>
-              </FormControl>
-            </Flex>
-            <Flex direction="column" align="flex-start" width="400px" padding="10px">
-            <Heading marginBottom={-5} color="gray.600" fontWeight="500" size="md"padding="5px" mb="-15px">
-              E-mail
-            </Heading>
-            <FormControl isInvalid={errorEmail}>
-              <Input
-                name="email"
-                id="email"
-                align="center"
-                onBlur={handleEmailError}
-                onChange={(t) => setEmail(t.target.value)}
-                value={email}
-                type="email"
-                placeholder="E-mail"
-                errorBorderColor="crimson"
-                width="400px"
-                mt="15px"
-              />
-              <FormErrorMessage>{emailError ? 'E-mail já cadastrado na nossa base de dados' : 'Preencha um e-mail válido.'}</FormErrorMessage>
-            </FormControl>
-          </Flex>
-          <Flex direction="column" align="flex-start" width="400px" padding="10px">
-            <Heading marginBottom={-5} color="gray.600" fontWeight="500" size="md"padding="5px" mb="-15px">
-             CPF
-            </Heading>
-            <FormControl isInvalid={errorDoc}>
-              <Input
-                name="doc"
-                id="doc"
-                align="center"
-                onBlur={handleDocError}
-                onChange={handleCpf}
-                value={doc}
-                type="text"
-                placeholder="555.555.555-55"
-                errorBorderColor="crimson"
-                width="400px"
-                mt="15px"
-              />
-              <FormErrorMessage>{docError ? 'CPF já cadastrado na nossa base de dados' : 'Preencha um CPF válido.'}</FormErrorMessage>
-            </FormControl>
-          </Flex>
-          <Flex direction="column" align="flex-start" width="400px" padding="10px">
-            <Heading marginBottom={-5} color="gray.600" fontWeight="500" size="md"padding="5px" mb="-15px">
-              Data de nascimento
-            </Heading>
+    <form onSubmit={onSubmit}>
+      <Grid
+        templateColumns="1fr 1fr 1fr "
+        gap={3}
+        backgroundColor="#f1f0ef"
+      >
+        <Flex direction="column" align="flex-start" width="400px" padding="10px">
+          <Heading marginBottom={-5} color="gray.600" fontWeight="500" size="md"padding="5px" mb="-15px">
+            Nome
+          </Heading>
+          <FormControl isInvalid={errorName}>
+          <Input
+            name="name"
+            onChange={(t) => setName(t.target.value)}
+            value={name}
+            type="text"
+            placeholder="Nome Completo"
+            errorBorderColor="crimson"
+            align="center"
+            onBlur={() => handleNameError()}
+            width="400px"
+            mt="15px"
+          />
+          <FormErrorMessage>Nome é obrigatório</FormErrorMessage>
+          </FormControl>
+        </Flex>
+        <Flex direction="column" align="flex-start" width="400px" padding="10px">
+        <Heading marginBottom={-5} color="gray.600" fontWeight="500" size="md"padding="5px" mb="-15px">
+          E-mail
+        </Heading>
+        <FormControl isInvalid={errorEmail}>
+          <Input
+            name="email"
+            id="email"
+            align="center"
+            onBlur={handleEmailError}
+            onChange={(t) => setEmail(t.target.value)}
+            value={email}
+            type="email"
+            placeholder="E-mail"
+            errorBorderColor="crimson"
+            width="400px"
+            mt="15px"
+          />
+          <FormErrorMessage>{emailError ? 'E-mail já cadastrado na nossa base de dados' : 'Preencha um e-mail válido.'}</FormErrorMessage>
+        </FormControl>
+      </Flex>
+      <Flex direction="column" align="flex-start" width="400px" padding="10px">
+        <Heading marginBottom={-5} color="gray.600" fontWeight="500" size="md"padding="5px" mb="-15px">
+          CPF
+        </Heading>
+        <FormControl isInvalid={errorDoc}>
+          <Input
+            name="doc"
+            id="doc"
+            align="center"
+            onBlur={handleDocError}
+            onChange={handleCpf}
+            value={doc}
+            type="text"
+            placeholder="555.555.555-55"
+            errorBorderColor="crimson"
+            width="400px"
+            mt="15px"
+          />
+          <FormErrorMessage>{docError ? 'CPF já cadastrado na nossa base de dados' : 'Preencha um CPF válido.'}</FormErrorMessage>
+        </FormControl>
+      </Flex>
+      <Flex direction="column" align="flex-start" width="400px" padding="10px">
+        <Heading marginBottom={-5} color="gray.600" fontWeight="500" size="md"padding="5px" mb="-15px">
+          Data de nascimento
+        </Heading>
 
-            <FormControl isInvalid={errorBirth}>
-              <Input
-                name="birthDate"
-                align="center"
-                onBlur={handleBirthError}
-                onChange={(t) => setBirthDate(t.target.value)}
-                value={String(birthDate)}
-                type="date"
-                placeholder="11/11/1111"
-                errorBorderColor="crimson"
-                width="400px"
-                mt="15px"
-              />
-              <FormErrorMessage>{birthError ? 'O profissional deve ser maior de 18 anos' : 'Preencha a data de nascimento.'}</FormErrorMessage>
-            </FormControl>
-          </Flex>
-          <Flex direction="column" align="flex-start" width="400px" padding="10px">
-            <Heading marginBottom={-5} color="gray.600" fontWeight="500" size="md"padding="5px" mb="-15px">
-              Telefone
-            </Heading>
-            <FormControl isInvalid={errorPhone}>
-              <Input
-                name="phone"
-                align="center"
-                onBlur={handlePhoneError}
-                onChange={handlePhone}
-                value={phone}
-                type="phone"
-                placeholder="DD-XXXXX-XXXX"
-                errorBorderColor="crimson"
-                width="400px"
-                mt="15px"
-              />
-              <FormErrorMessage>{phoneError ? 'Telefone já cadastrado na nossa base de dados' : 'Preencha um telefone válido.'}</FormErrorMessage>
-            </FormControl>
-          </Flex>
-          <Flex direction="column" align="flex-start" width="400px" padding="10px">
-            <Heading marginBottom={-5} color="gray.600" fontWeight="500" size="md"padding="5px" mb="-15px">
-              Avatar
-            </Heading>
-            
-            <Input
-              name="avatar"
-              align="center"
-              padding="6px"
-              onChange={handleAvatar}
-              type="file"
-              accept="image/*"
+        <FormControl isInvalid={errorBirth}>
+          <Input
+            name="birthDate"
+            align="center"
+            onBlur={handleBirthError}
+            onChange={(t) => setBirthDate(t.target.value)}
+            value={String(birthDate)}
+            type="date"
+            placeholder="11/11/1111"
+            errorBorderColor="crimson"
+            width="400px"
+            mt="15px"
+          />
+          <FormErrorMessage>{birthError ? 'O profissional deve ser maior de 18 anos' : 'Preencha a data de nascimento.'}</FormErrorMessage>
+        </FormControl>
+      </Flex>
+      <Flex direction="column" align="flex-start" width="400px" padding="10px">
+        <Heading marginBottom={-5} color="gray.600" fontWeight="500" size="md"padding="5px" mb="-15px">
+          Telefone
+        </Heading>
+        <FormControl isInvalid={errorPhone}>
+          <Input
+            name="phone"
+            align="center"
+            onBlur={handlePhoneError}
+            onChange={handlePhone}
+            value={phone}
+            type="phone"
+            placeholder="DD-XXXXX-XXXX"
+            errorBorderColor="crimson"
+            width="400px"
+            mt="15px"
+          />
+          <FormErrorMessage>{phoneError ? 'Telefone já cadastrado na nossa base de dados' : 'Preencha um telefone válido.'}</FormErrorMessage>
+        </FormControl>
+      </Flex>
+      <Flex direction="column" align="flex-start" width="400px" padding="10px">
+        <Heading marginBottom={-5} color="gray.600" fontWeight="500" size="md"padding="5px" mb="-15px">
+          Avatar
+        </Heading>
+        
+        <Input
+          name="avatar"
+          align="center"
+          padding="6px"
+          onChange={handleAvatar}
+          type="file"
+          accept="image/*"
+          errorBorderColor="crimson"
+          width="400px"
+          mt="15px"
+        />
+      </Flex>
+      </Grid>
+      
+      <Flex  
+        backgroundColor="#f1f0ef"
+        direction="column" align="flex-start" padding="10px">
+        <Heading marginBottom={-5} color="gray.600" fontWeight="600" size="md"padding="5px" mb="-15px">
+          Informações Profissionais
+        </Heading>
+      </Flex>
+      <Grid
+        templateColumns="1fr"
+        gap={3}
+        backgroundColor="#f1f0ef"
+        flex="1"
+      >
+        <Flex direction="column" align="flex-start" padding="10px">
+          <Heading marginBottom={-5} color="gray.600" fontWeight="500" size="md"padding="5px" mb="-15px">
+            Sobre
+          </Heading>
+          <FormControl isInvalid={errorDescription} width="94%">
+            <Textarea
+              name="description"
+              onBlur={handleDescriptionError}
+              onChange={(t) => setDescription(t.target.value)}
+              value={description}
+              placeholder="Sobre o profissional"
+              size="sm"
+              height="50px"
               errorBorderColor="crimson"
-              width="400px"
               mt="15px"
+              width="100%"
             />
-          </Flex>
-          </Grid>
-          
-          <Flex  
-            backgroundColor="#f1f0ef"
-            direction="column" align="flex-start" padding="10px">
-            <Heading marginBottom={-5} color="gray.600" fontWeight="600" size="md"padding="5px" mb="-15px">
-              Informações Profissionais
-            </Heading>
-          </Flex>
-          <Grid
-            templateColumns="1fr"
-            gap={3}
-            backgroundColor="#f1f0ef"
-          >
-            <Flex direction="column" align="flex-start" width="1410px" padding="10px">
-              <Heading marginBottom={-5} color="gray.600" fontWeight="500" size="md"padding="5px" mb="-15px">
-                Sobre
-              </Heading>
-              <FormControl isInvalid={errorDescription}>
-                <Textarea
-                  name="description"
-                  onBlur={handleDescriptionError}
-                  onChange={(t) => setDescription(t.target.value)}
-                  value={description}
-                  placeholder="Sobre o profissional"
-                  size="sm"
-                  height="50px"
-                  errorBorderColor="crimson"
-                  mt="15px"
-                  width="1460px"
-                />
-                <FormErrorMessage>Escreva sobre o profissonal</FormErrorMessage>
-            </FormControl>
-            </Flex>
-          </Grid>
-          <Grid
-            templateColumns="1fr 1fr 1fr "
-            gap={3}
-            backgroundColor="#f1f0ef"
-          >
-            <Flex direction="column" align="flex-start" width="400px" padding="10px">
-              <Heading marginBottom={-5} color="gray.600" fontWeight="500" size="md"padding="5px" mb="-15px">
-                Tipo de documento
-              </Heading>
-              <FormControl isInvalid={errorDocDescription}>
-                <Input
-                  name="docDescription"
-                  align="center"
-                  onBlur={handleDocDescriptionError}
-                  onChange={(t) => setDocDescription(t.target.value)}
-                  value={docDescription}
-                  type="text"
-                  placeholder="CRP"
-                  errorBorderColor="crimson"
-                  width="400px"
-                  mt="15px"
-                />
-                <FormErrorMessage>Preencha o tipo do documento</FormErrorMessage>
-              </FormControl>
-            </Flex>
-            <Flex direction="column" align="flex-start" width="400px" padding="10px">
-            <Heading marginBottom={-5} color="gray.600" fontWeight="500" size="md"padding="5px" mb="-15px">
-              Número do documento
-            </Heading>
-            <FormControl isInvalid={errorDocValue}>
-              <Input
-                name="docValue"
-                align="center"
-                onBlur={handleDocValueError}
-                onChange={(t) => setDocValue(t.target.value)}
-                value={docValue}
-                type="text"
-                placeholder="1234/6"
-                errorBorderColor="crimson"
-                width="400px"
-                mt="15px"
-
-              />
-              <FormErrorMessage>Preencha o número do documento</FormErrorMessage>
-            </FormControl>
-          </Flex>
-          <Flex direction="column" align="flex-start" width="400px" padding="10px">
-            <Heading marginBottom={-5} color="gray.600" fontWeight="500" size="md"padding="5px" mb="-15px">
-             Valor por consulta
-            </Heading>
-            <FormControl isInvalid={errorValue}>
+            <FormErrorMessage>Escreva sobre o profissonal</FormErrorMessage>
+        </FormControl>
+        </Flex>
+      </Grid>
+      <Grid
+        templateColumns="1fr 1fr 1fr "
+        gap={3}
+        backgroundColor="#f1f0ef"
+      >
+        <Flex direction="column" align="flex-start" width="400px" padding="10px">
+          <Heading marginBottom={-5} color="gray.600" fontWeight="500" size="md"padding="5px" mb="-15px">
+            Tipo de documento
+          </Heading>
+          <FormControl isInvalid={errorDocDescription}>
             <Input
-              name="value"
+              name="docDescription"
               align="center"
-              onBlur={handleValueError}
-              onChange={(v) => setValue(v.target.value)}
-              value={String(value)}
-              type="number"
-              placeholder="R$ 150,00"
-              errorBorderColor="crimson"
-              width="400px"
-              mt="15px"
-            />
-            <FormErrorMessage>Preencha o valor por consulta</FormErrorMessage>
-            </FormControl>
-          </Flex>
-          </Grid>
-          <Grid
-            templateColumns="1fr 1fr"
-            gap={3}
-            backgroundColor="#f1f0ef"
-          >
-            <Flex direction="column" align="flex-start" width="650px" padding="10px">
-              <Heading marginBottom={-5} color="gray.600" fontWeight="500" size="md"padding="5px" mb="-15px">
-                Link da página pessoal
-              </Heading>
-
-              <Input
-                name="pageUrl"
-                align="center"
-                onChange={(p) => setPageUrl(p.target.value)}
-                value={pageUrl}
-                type="text"
-                placeholder="https://www.linkedin.com/"
-                errorBorderColor="crimson"
-                width="650px"
-                mt="15px"
-
-              />
-            </Flex>
-            <Flex direction="column" align="flex-start" width="650px" padding="10px">
-            <Heading marginBottom={-5} color="gray.600" fontWeight="500" size="md"padding="5px" mb="-15px">
-            Link do vídeo de apresentação
-            </Heading>
-
-            <Input
-              name="videoUrl"
-              align="center"
-              onChange={(v) => setVideoUrl(v.target.value)}
-              value={videoUrl}
+              onBlur={handleDocDescriptionError}
+              onChange={(t) => setDocDescription(t.target.value)}
+              value={docDescription}
               type="text"
-              placeholder="https://www.youtube.com/"
+              placeholder="CRP"
               errorBorderColor="crimson"
-              width="650px"
+              width="400px"
               mt="15px"
-
             />
-          </Flex>
-          </Grid>
-          <Grid
-            templateColumns="1fr 1fr"
-            gap={3}
-            backgroundColor="#f1f0ef"
-          >
-            <Flex direction="column" align="flex-start" width="600px" padding="10px">
-              <Heading marginBottom={-5} color="gray.600" fontWeight="500" size="md"padding="5px" mb="-15px">
-                Graduação ou curso
-              </Heading>
-                <Flex direction="row">
-                  <FormControl isInvalid={errorCollege}> 
-                      <Input
-                        name="college"
-                        align="center"
-                        onBlur={handleCollegeError}
-                        onChange={(c) => setCollege(c.target.value)}
-                        value={college}
-                        type="text"
-                        placeholder="Faculdade Federal de SP"
-                        errorBorderColor="crimson"
-                        width="600px"
-                      mt="15px"
+            <FormErrorMessage>Preencha o tipo do documento</FormErrorMessage>
+          </FormControl>
+        </Flex>
+        <Flex direction="column" align="flex-start" width="400px" padding="10px">
+        <Heading marginBottom={-5} color="gray.600" fontWeight="500" size="md"padding="5px" mb="-15px">
+          Número do documento
+        </Heading>
+        <FormControl isInvalid={errorDocValue}>
+          <Input
+            name="docValue"
+            align="center"
+            onBlur={handleDocValueError}
+            onChange={(t) => setDocValue(t.target.value)}
+            value={docValue}
+            type="text"
+            placeholder="1234/6"
+            errorBorderColor="crimson"
+            width="400px"
+            mt="15px"
 
-                      />
-                    <FormErrorMessage>Preencha a formação</FormErrorMessage>
-                  </FormControl>
-                  <Button onClick={() => hanldeGraduate(college)} background="#6E8BC6" variant="solid" color="#fff" mt="15px" ml="10px">
-                    + 
-                  </Button>
-                </Flex>
+          />
+          <FormErrorMessage>Preencha o número do documento</FormErrorMessage>
+        </FormControl>
+      </Flex>
+      <Flex direction="column" align="flex-start" width="400px" padding="10px">
+        <Heading marginBottom={-5} color="gray.600" fontWeight="500" size="md"padding="5px" mb="-15px">
+          Valor por consulta
+        </Heading>
+        <FormControl isInvalid={errorValue}>
+        <Input
+          name="value"
+          align="center"
+          onBlur={handleValueError}
+          onChange={(v) => setValue(v.target.value)}
+          value={String(value)}
+          type="number"
+          placeholder="R$ 150,00"
+          errorBorderColor="crimson"
+          width="400px"
+          mt="15px"
+        />
+        <FormErrorMessage>Preencha o valor por consulta</FormErrorMessage>
+        </FormControl>
+      </Flex>
+      </Grid>
+      <Grid
+        templateColumns="1fr 1fr"
+        gap={3}
+        backgroundColor="#f1f0ef"
+      >
+        <Flex direction="column" align="flex-start" width="650px" padding="10px">
+          <Heading marginBottom={-5} color="gray.600" fontWeight="500" size="md"padding="5px" mb="-15px">
+            Link da página pessoal
+          </Heading>
 
-              <Flex direction="column" p="5px">
-                {graduates?.map((graduate, index) => (
-                  <Flex key={index} direction="row" p="5px" align="center">
-                    <Text>{graduate.id ? graduate.college : graduate}</Text>
-                    <button style={{
-                      background: "#6E8BC6", height: 16, width: 16, borderRadius: 8, alignItems: 'center', color: '#FFF', marginLeft: 10, justifyContent: 'center'
-                    }} onClick={() => handleCancelGraduate(graduate)} type="button">
-                      <p style={{paddingBottom: 5}}>x</p>
-                    </button>
-                  </Flex>
-                ))}
-              </Flex>
+          <Input
+            name="pageUrl"
+            align="center"
+            onChange={(p) => setPageUrl(p.target.value)}
+            value={pageUrl}
+            type="text"
+            placeholder="https://www.linkedin.com/"
+            errorBorderColor="crimson"
+            width="650px"
+            mt="15px"
 
-            </Flex>
-            <Flex direction="column" align="flex-start" width="600px" padding="10px">
-            <Heading marginBottom={-5} color="gray.600" fontWeight="500" size="md"padding="5px" mb="-15px">
-            Experiências profissionais
-            </Heading>
+          />
+        </Flex>
+        <Flex direction="column" align="flex-start" width="650px" padding="10px">
+        <Heading marginBottom={-5} color="gray.600" fontWeight="500" size="md"padding="5px" mb="-15px">
+        Link do vídeo de apresentação
+        </Heading>
 
+        <Input
+          name="videoUrl"
+          align="center"
+          onChange={(v) => setVideoUrl(v.target.value)}
+          value={videoUrl}
+          type="text"
+          placeholder="https://www.youtube.com/"
+          errorBorderColor="crimson"
+          width="650px"
+          mt="15px"
+
+        />
+      </Flex>
+      </Grid>
+      <Grid
+        templateColumns="1fr 1fr"
+        gap={3}
+        backgroundColor="#f1f0ef"
+      >
+        <Flex direction="column" align="flex-start" width="600px" padding="10px">
+          <Heading marginBottom={-5} color="gray.600" fontWeight="500" size="md"padding="5px" mb="-15px">
+            Graduação ou curso
+          </Heading>
             <Flex direction="row">
-              <FormControl isInvalid={errorSpecialty}> 
-                <Input
-                  name="specialty"
-                  align="center"
-                  onBlur={handleSpecialtyError}
-                  onChange={(e) => setSpecialty(e.target.value)}
-                  value={specialty}
-                  type="text"
-                  placeholder="5 anos de experiência na área organizacional"
-                  errorBorderColor="crimson"
-                  width="600px"
+              <FormControl isInvalid={errorCollege}> 
+                  <Input
+                    name="college"
+                    align="center"
+                    onBlur={handleCollegeError}
+                    onChange={(c) => setCollege(c.target.value)}
+                    value={college}
+                    type="text"
+                    placeholder="Faculdade Federal de SP"
+                    errorBorderColor="crimson"
+                    width="600px"
                   mt="15px"
 
-                />
-                <FormErrorMessage>Preencha a experiência profissional</FormErrorMessage>
+                  />
+                <FormErrorMessage>Preencha a formação</FormErrorMessage>
               </FormControl>
-              <Button onClick={() => handleExperience(specialty)} background="#6E8BC6" variant="solid" color="#fff" mt="15px" ml="10px">
+              <Button onClick={() => hanldeGraduate(college)} background="#6E8BC6" variant="solid" color="#fff" mt="15px" ml="10px">
                 + 
               </Button>
             </Flex>
 
-            <Flex direction="column" p="5px">
-              {experiences?.map((experience, index) => (
-                <Flex key={index} direction="row" p="5px" align="center">
-                  <Text>{experience.id ? experience.especialty : experience}</Text>
-                  <button style={{
-                      background: "#6E8BC6", height: 16, width: 16, borderRadius: 8, alignItems: 'center', color: '#FFF', marginLeft: 10, justifyContent: 'center'
-                    }} onClick={() => handleCancelExperience(experience)} type="button">
-                    x
-                  </button>
-                </Flex>
-              ))}
-            </Flex>
+          <Flex direction="column" p="5px">
+            {graduates?.map((graduate, index) => (
+              <Flex key={index} direction="row" p="5px" align="center">
+                <Text>{graduate.id ? graduate.college : graduate}</Text>
+                <button style={{
+                  background: "#6E8BC6", height: 16, width: 16, borderRadius: 8, alignItems: 'center', color: '#FFF', marginLeft: 10, justifyContent: 'center'
+                }} onClick={() => handleCancelGraduate(graduate)} type="button">
+                  <p style={{paddingBottom: 5}}>x</p>
+                </button>
+              </Flex>
+            ))}
           </Flex>
-          </Grid>
-          <Grid
-            templateColumns="1fr"
-            gap={3}
-            backgroundColor="#f1f0ef"
-          >
-            <Flex direction="column" align="flex-start" width="650px" padding="10px">
-              <Heading marginBottom={-5} color="gray.600" fontWeight="500" size="md"padding="5px" mb="-15px">
-                Especialidades
-              </Heading>
-              <FormControl isInvalid={errorEspecialties}> 
-                <Input
-                  name="specialties"
-                  align="center"
-                  onBlur={handleEspecialtiesError}
-                  onChange={(s) => setSearch(s.target.value)}
-                  value={search}
-                  type="text"
-                  placeholder="Ansiedade"
-                  errorBorderColor="crimson"
-                  width="650px"
-                  mt="15px"
-                />
-                <FormErrorMessage>Escolha ao menos uma especialidade</FormErrorMessage>
-              </FormControl>
+
+        </Flex>
+        <Flex direction="column" align="flex-start" width="600px" padding="10px">
+        <Heading marginBottom={-5} color="gray.600" fontWeight="500" size="md"padding="5px" mb="-15px">
+        Experiências profissionais
+        </Heading>
+
+        <Flex direction="row">
+          <FormControl isInvalid={errorSpecialty}> 
+            <Input
+              name="specialty"
+              align="center"
+              onBlur={handleSpecialtyError}
+              onChange={(e) => setSpecialty(e.target.value)}
+              value={specialty}
+              type="text"
+              placeholder="5 anos de experiência na área organizacional"
+              errorBorderColor="crimson"
+              width="600px"
+              mt="15px"
+
+            />
+            <FormErrorMessage>Preencha a experiência profissional</FormErrorMessage>
+          </FormControl>
+          <Button onClick={() => handleExperience(specialty)} background="#6E8BC6" variant="solid" color="#fff" mt="15px" ml="10px">
+            + 
+          </Button>
+        </Flex>
+
+        <Flex direction="column" p="5px">
+          {experiences?.map((experience, index) => (
+            <Flex key={index} direction="row" p="5px" align="center">
+              <Text>{experience.id ? experience.especialty : experience}</Text>
+              <button style={{
+                  background: "#6E8BC6", height: 16, width: 16, borderRadius: 8, alignItems: 'center', color: '#FFF', marginLeft: 10, justifyContent: 'center'
+                }} onClick={() => handleCancelExperience(experience)} type="button">
+                x
+              </button>
             </Flex>
+          ))}
+        </Flex>
+      </Flex>
+      </Grid>
+      <Grid
+        templateColumns="1fr"
+        gap={3}
+        backgroundColor="#f1f0ef"
+      >
+        <Flex direction="column" align="flex-start" width="650px" padding="10px">
+          <Heading marginBottom={-5} color="gray.600" fontWeight="500" size="md"padding="5px" mb="-15px">
+            Especialidades
+          </Heading>
+          <FormControl isInvalid={errorEspecialties}> 
+            <Input
+              name="specialties"
+              align="center"
+              onBlur={handleEspecialtiesError}
+              onChange={(s) => setSearch(s.target.value)}
+              value={search}
+              type="text"
+              placeholder="Ansiedade"
+              errorBorderColor="crimson"
+              width="650px"
+              mt="15px"
+            />
+            <FormErrorMessage>Escolha ao menos uma especialidade</FormErrorMessage>
+          </FormControl>
+        </Flex>
 
-            {display && (
-              <SubjectView>
-                {subjects
-                  .filter(
-                    ({description}) =>
-                      description
-                        .normalize('NFD')
-                        .replace(/[\u0300-\u036f]/g, '')
-                        .includes(search) ||
-                      description
-                        .normalize('NFD')
-                        .replace(/[\u0300-\u036f]/g, '')
-                        .toLowerCase()
-                        .includes(search),
-                  )
-                  .map((val) => (
-                    <SubjectTouchable
-                      key={val.id}
-                      onClick={() => setProfi(val)}>
-                      <SubjectText>{val.description}</SubjectText>
-                    </SubjectTouchable>
-                  ))}
-              </SubjectView>
-            )}
-
-            <Flex direction="row" pl="15px" mt="-5px">
-              {specialties?.map((specialty, index) => (
-                  <Flex key={index} direction="row" p="5px" align="center" border="1px" borderColor="gray.400" borderRadius="4px" mr="5px" justifyContent="flex-start" >
-                    <Text>{specialty.description}</Text>
-                    <button style={{
-                      background: "#6E8BC6", height: 16, width: 16, borderRadius: 8, alignItems: 'center', color: '#FFF', marginLeft: 10, justifyContent: 'center'
-                    }} onClick={() => handleCancelSpecialty(specialty.id)}>x</button>
-                  </Flex>
+        {display && (
+          <SubjectView>
+            {subjects
+              .filter(
+                ({description}) =>
+                  description
+                    .normalize('NFD')
+                    .replace(/[\u0300-\u036f]/g, '')
+                    .includes(search) ||
+                  description
+                    .normalize('NFD')
+                    .replace(/[\u0300-\u036f]/g, '')
+                    .toLowerCase()
+                    .includes(search),
+              )
+              .map((val) => (
+                <SubjectTouchable
+                  key={val.id}
+                  onClick={() => setProfi(val)}>
+                  <SubjectText>{val.description}</SubjectText>
+                </SubjectTouchable>
               ))}
-            </Flex>
-          
-          </Grid>
-          <Flex backgroundColor="#f1f0ef" justifyContent="center" pb="15px">
-            <Button
-              width="400px"
-              mt={4}
-              isLoading={loading}
-              onClick={onSubmit}
-              background={theme.colors.purple[600]}
-              color={theme.colors.white}
-              isDisabled={disabledSubmit}
-            >
-              Cadastrar
-            </Button>
-          </Flex>
-        </form>
+          </SubjectView>
+        )}
+
+        <Flex direction="row" pl="15px" mt="-5px">
+          {specialties?.map((specialty, index) => (
+              <Flex key={index} direction="row" p="5px" align="center" border="1px" borderColor="gray.400" borderRadius="4px" mr="5px" justifyContent="flex-start" >
+                <Text>{specialty.description}</Text>
+                <button style={{
+                  background: "#6E8BC6", height: 16, width: 16, borderRadius: 8, alignItems: 'center', color: '#FFF', marginLeft: 10, justifyContent: 'center'
+                }} onClick={() => handleCancelSpecialty(specialty.id)}>x</button>
+              </Flex>
+          ))}
+        </Flex>
+      
+      </Grid>
+      <Flex backgroundColor="#f1f0ef" justifyContent="center" pb="15px">
+        <Button
+          width="400px"
+          mt={4}
+          isLoading={loading}
+          onClick={onSubmit}
+          background={theme.colors.purple[600]}
+          color={theme.colors.white}
+          isDisabled={disabledSubmit}
+        >
+          Cadastrar
+        </Button>
+      </Flex>
+    </form>
   );
 }

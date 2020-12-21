@@ -7,8 +7,7 @@ function BodyBar() {
   return (
     <Flex
       gridArea="bodybar"
-      bg="red"
-      flex="1"
+      // flex="1"
       backgroundColor="#f1f0ef"
       borderBottomWidth="1px"
       justifyContent="space-between"

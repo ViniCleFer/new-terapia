@@ -45,7 +45,7 @@ function CardUserCall({ data }) {
       flexDirection="column"
       backgroundColor="white"
       height="140px"
-      width="276px"
+      // width="276px"
       p="20px"
     >
       <Flex flexDirection="rows">
