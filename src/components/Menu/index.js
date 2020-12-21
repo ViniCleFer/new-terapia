@@ -14,11 +14,12 @@ import history from "../../services/history";
 function Menu() {
   return (
     <Flex
-      bg="red"
       backgroundColor="purple.500"
       flexDirection="column"
-      height="100vh"
+      height="100%"
       width="65px"
+      flex="1"
+      pb="20px"
     >
       <Tabs orientation="vertical">
         <TabList>

@@ -894,19 +894,26 @@ export default function Content() {
         </Flex>
       
       </Grid>
-      <Flex backgroundColor="#f1f0ef" justifyContent="center" pb="15px">
-        <Button
-          width="400px"
-          mt={4}
-          isLoading={loading}
-          onClick={onSubmit}
-          background={theme.colors.purple[600]}
-          color={theme.colors.white}
-          isDisabled={disabledSubmit}
-        >
-          Cadastrar
-        </Button>
-      </Flex>
+      <Grid
+        templateColumns="1fr"
+        gap={3}
+        backgroundColor="#f1f0ef"
+        pb="20px"
+      >
+        <Flex backgroundColor="#f1f0ef" justifyContent="center">
+          <Button
+            width="400px"
+            mt={4}
+            isLoading={loading}
+            onClick={onSubmit}
+            background={theme.colors.purple[600]}
+            color={theme.colors.white}
+            isDisabled={disabledSubmit}
+          >
+            Cadastrar
+          </Button>
+        </Flex>
+      </Grid>
     </form>
   );
 }
