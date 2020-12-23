@@ -1,12 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  Grid,
-  Accordion,
-  AccordionItem,
-  AccordionPanel,
-} from "@chakra-ui/core";
+import { Flex } from "@chakra-ui/core";
 
 import {
   getAllProfessionalsRequest,
@@ -24,21 +19,16 @@ function Content() {
   }, []);
 
   return (
-    <Accordion className="accordionprimeiro" defaultIndex={[0]} allowMultiple={true} backgroundColor="#f1f0ef">
-      <AccordionItem border="0">
-        <AccordionPanel pb={4} pt="20px" backgroundColor="#f1f0ef">
-          <Grid
-            templateColumns="1fr 1fr 1fr 1fr 1fr"
-            gap={3}
-            backgroundColor="#f1f0ef"
-          >
-            {professionals.map((item, index) => {
-              return <CardUserCall data={item} key={index} />;
-            })}
-          </Grid>
-        </AccordionPanel>
-      </AccordionItem>
-    </Accordion>
+    <Flex
+      p="20px"
+      w="100%"
+      bg="#f1f0ef"
+      direction={['column', "column", 'column', 'column', 'row']}
+    >
+      {professionals.map((item, index) => {
+        return <CardUserCall data={item} key={index} />;
+      })}
+    </Flex>
   );
 }
 

@@ -2,29 +2,38 @@
 import React from "react";
 import { Grid } from "@chakra-ui/core";
 
-import TopSidebar from "../../components/ProfessionalsList/TopSideBar";
+// import TopSidebar from "../../components/ProfessionalsList/TopSideBar";
 import Content from "../../components/ProfessionalsList/Content";
 import BodyBar from "../../components/ProfessionalsList/BodyBar";
-import SideBar from "../../components/ProfessionalsList/Sidebar";
+// import SideBar from "../../components/ProfessionalsList/Sidebar";
+
+// import './styles.css'
 
 export default function ProfessionalsList() {
   return (
-    <Grid
-      height="100vh"
-      width="100vw"
-      templateColumns="260px 1fr"
-      templateRows="60px 1fr"
-      templateAreas="
-      ' topsidebar bodybar'
-      ' sidebar  content'
-      "
-    >
-      <TopSidebar />
+    // <div className="div-grid">
+      <Grid
+        height="100%"
+        width="100%"
+        // templateColumns="260px 1fr"
+        templateRows="60px 1fr"
+        templateAreas="
+        ' bodybar'
+        ' content'
+        "
+      >
+        {/* <div className="top-sidebar">
+          <TopSidebar />
+        </div>
 
-      <SideBar />
-      <Content />
+        <div className="sidebar">
+          <SideBar />
+        </div> */}
 
-      <BodyBar />
-    </Grid>
+        <Content />
+
+        <BodyBar />
+      </Grid>
+    // </div>
   );
 }

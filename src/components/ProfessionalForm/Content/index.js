@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, {useState, useEffect} from "react";
-import { Grid, Flex, Heading, Button, Text, Input, Textarea, FormControl, FormErrorMessage} from "@chakra-ui/core";
+import { Grid, Flex, Heading, Button, Text, Textarea, FormControl, FormErrorMessage} from "@chakra-ui/core";
 import {useSelector, useDispatch} from 'react-redux';
 import { mask } from 'remask'
 
@@ -24,7 +24,11 @@ import {handleAvatar as uploadAvavatar} from "../../../helpers/uploadAvatar";
 
 import theme from '../../../styles/theme';
 
-import { 
+import {
+  Container,
+  NewGrid,
+  NewInput,
+  NewGridEsp,
   SubjectView,
   SubjectTouchable,
   SubjectText,
@@ -474,18 +478,21 @@ export default function Content() {
   ]);
 
   return (
+    <Container direction={['column', "column", 'column', 'column']} bg="#f1f0ef">
+
     <form onSubmit={onSubmit}>
-      <Grid
+      {/* <NewGrid
         templateColumns="1fr 1fr 1fr "
         gap={3}
         backgroundColor="#f1f0ef"
-      >
-        <Flex direction="column" align="flex-start" width="400px" padding="10px">
+      > */}
+      <NewGrid>
+        <Flex id="flexName" direction="column" align="flex-start" width="33.3%" padding="10px">
           <Heading marginBottom={-5} color="gray.600" fontWeight="500" size="md"padding="5px" mb="-15px">
             Nome
           </Heading>
-          <FormControl isInvalid={errorName}>
-          <Input
+          <FormControl isInvalid={errorName} width="100%">
+          <NewInput
             name="name"
             onChange={(t) => setName(t.target.value)}
             value={name}
@@ -494,18 +501,18 @@ export default function Content() {
             errorBorderColor="crimson"
             align="center"
             onBlur={() => handleNameError()}
-            width="400px"
             mt="15px"
           />
           <FormErrorMessage>Nome é obrigatório</FormErrorMessage>
           </FormControl>
         </Flex>
-        <Flex direction="column" align="flex-start" width="400px" padding="10px">
+
+        <Flex id="flexName" direction="column" align="flex-start" width="33.3%" padding="10px">
         <Heading marginBottom={-5} color="gray.600" fontWeight="500" size="md"padding="5px" mb="-15px">
           E-mail
         </Heading>
-        <FormControl isInvalid={errorEmail}>
-          <Input
+        <FormControl isInvalid={errorEmail} width="100%">
+          <NewInput
             name="email"
             id="email"
             align="center"
@@ -515,111 +522,104 @@ export default function Content() {
             type="email"
             placeholder="E-mail"
             errorBorderColor="crimson"
-            width="400px"
             mt="15px"
           />
           <FormErrorMessage>{emailError ? 'E-mail já cadastrado na nossa base de dados' : 'Preencha um e-mail válido.'}</FormErrorMessage>
         </FormControl>
-      </Flex>
-      <Flex direction="column" align="flex-start" width="400px" padding="10px">
-        <Heading marginBottom={-5} color="gray.600" fontWeight="500" size="md"padding="5px" mb="-15px">
-          CPF
-        </Heading>
-        <FormControl isInvalid={errorDoc}>
-          <Input
-            name="doc"
-            id="doc"
-            align="center"
-            onBlur={handleDocError}
-            onChange={handleCpf}
-            value={doc}
-            type="text"
-            placeholder="555.555.555-55"
-            errorBorderColor="crimson"
-            width="400px"
-            mt="15px"
-          />
-          <FormErrorMessage>{docError ? 'CPF já cadastrado na nossa base de dados' : 'Preencha um CPF válido.'}</FormErrorMessage>
-        </FormControl>
-      </Flex>
-      <Flex direction="column" align="flex-start" width="400px" padding="10px">
-        <Heading marginBottom={-5} color="gray.600" fontWeight="500" size="md"padding="5px" mb="-15px">
-          Data de nascimento
-        </Heading>
+        </Flex>
+        <Flex id="flexName" direction="column" align="flex-start" width="33.3%" padding="10px">
+          <Heading marginBottom={-5} color="gray.600" fontWeight="500" size="md"padding="5px" mb="-15px">
+            CPF
+          </Heading>
+          <FormControl isInvalid={errorDoc} width="100%">
+            <NewInput
+              name="doc"
+              id="doc"
+              align="center"
+              onBlur={handleDocError}
+              onChange={handleCpf}
+              value={doc}
+              type="text"
+              placeholder="555.555.555-55"
+              errorBorderColor="crimson"
+              mt="15px"
+            />
+            <FormErrorMessage>{docError ? 'CPF já cadastrado na nossa base de dados' : 'Preencha um CPF válido.'}</FormErrorMessage>
+          </FormControl>
+        </Flex>
+      </NewGrid>
 
-        <FormControl isInvalid={errorBirth}>
-          <Input
-            name="birthDate"
-            align="center"
-            onBlur={handleBirthError}
-            onChange={(t) => setBirthDate(t.target.value)}
-            value={String(birthDate)}
-            type="date"
-            placeholder="11/11/1111"
-            errorBorderColor="crimson"
-            width="400px"
-            mt="15px"
-          />
-          <FormErrorMessage>{birthError ? 'O profissional deve ser maior de 18 anos' : 'Preencha a data de nascimento.'}</FormErrorMessage>
-        </FormControl>
-      </Flex>
-      <Flex direction="column" align="flex-start" width="400px" padding="10px">
-        <Heading marginBottom={-5} color="gray.600" fontWeight="500" size="md"padding="5px" mb="-15px">
-          Telefone
-        </Heading>
-        <FormControl isInvalid={errorPhone}>
-          <Input
-            name="phone"
-            align="center"
-            onBlur={handlePhoneError}
-            onChange={handlePhone}
-            value={phone}
-            type="phone"
-            placeholder="DD-XXXXX-XXXX"
-            errorBorderColor="crimson"
-            width="400px"
-            mt="15px"
-          />
-          <FormErrorMessage>{phoneError ? 'Telefone já cadastrado na nossa base de dados' : 'Preencha um telefone válido.'}</FormErrorMessage>
-        </FormControl>
-      </Flex>
-      <Flex direction="column" align="flex-start" width="400px" padding="10px">
-        <Heading marginBottom={-5} color="gray.600" fontWeight="500" size="md"padding="5px" mb="-15px">
-          Avatar
-        </Heading>
+      <NewGrid>
+
         
-        <Input
-          name="avatar"
-          align="center"
-          padding="6px"
-          onChange={handleAvatar}
-          type="file"
-          accept="image/*"
-          errorBorderColor="crimson"
-          width="400px"
-          mt="15px"
-        />
-      </Flex>
-      </Grid>
+        <Flex id="flexName" direction="column" align="flex-start" width="33.3%" padding="10px">
+          <Heading marginBottom={-5} color="gray.600" fontWeight="500" size="md"padding="5px" mb="-15px">
+            Data de nascimento
+          </Heading>
+
+          <FormControl isInvalid={errorBirth}  width="100%">
+            <NewInput
+              name="birthDate"
+              align="center"
+              onBlur={handleBirthError}
+              onChange={(t) => setBirthDate(t.target.value)}
+              value={String(birthDate)}
+              type="date"
+              placeholder="11/11/1111"
+              errorBorderColor="crimson"
+              mt="15px"
+            />
+            <FormErrorMessage>{birthError ? 'O profissional deve ser maior de 18 anos' : 'Preencha a data de nascimento.'}</FormErrorMessage>
+          </FormControl>
+        </Flex>
+        <Flex id="flexName" direction="column" align="flex-start" width="33.3%" padding="10px">
+          <Heading marginBottom={-5} color="gray.600" fontWeight="500" size="md"padding="5px" mb="-15px">
+            Telefone
+          </Heading>
+          <FormControl isInvalid={errorPhone}  width="100%">
+            <NewInput
+              name="phone"
+              align="center"
+              onBlur={handlePhoneError}
+              onChange={handlePhone}
+              value={phone}
+              type="phone"
+              placeholder="DD-XXXXX-XXXX"
+              errorBorderColor="crimson"
+              mt="15px"
+            />
+            <FormErrorMessage>{phoneError ? 'Telefone já cadastrado na nossa base de dados' : 'Preencha um telefone válido.'}</FormErrorMessage>
+          </FormControl>
+        </Flex>
+        <Flex id="flexName" direction="column" align="flex-start" width="33.3%" padding="10px">
+          <Heading marginBottom={-5} color="gray.600" fontWeight="500" size="md"padding="5px" mb="-15px">
+            Avatar
+          </Heading>
+          
+          <NewInput
+            name="avatar"
+            align="center"
+            padding="6px"
+            onChange={handleAvatar}
+            type="file"
+            accept="image/*"
+            errorBorderColor="crimson"
+            mt="15px"
+          />
+        </Flex>
+      </NewGrid>
       
-      <Flex  
-        backgroundColor="#f1f0ef"
-        direction="column" align="flex-start" padding="10px">
+      <Flex bg="#f1f0ef" direction="column" align="flex-start" padding="10px">
         <Heading marginBottom={-5} color="gray.600" fontWeight="600" size="md"padding="5px" mb="-15px">
           Informações Profissionais
         </Heading>
       </Flex>
-      <Grid
-        templateColumns="1fr"
-        gap={3}
-        backgroundColor="#f1f0ef"
-        flex="1"
-      >
-        <Flex direction="column" align="flex-start" padding="10px">
+      <NewGrid>
+        <Flex id="flexName" direction="column" align="flex-start" padding="10px"  width="100%">
           <Heading marginBottom={-5} color="gray.600" fontWeight="500" size="md"padding="5px" mb="-15px">
             Sobre
           </Heading>
-          <FormControl isInvalid={errorDescription} width="94%">
+          <FormControl isInvalid={errorDescription} width="100%">
             <Textarea
               name="description"
               onBlur={handleDescriptionError}
@@ -630,23 +630,19 @@ export default function Content() {
               height="50px"
               errorBorderColor="crimson"
               mt="15px"
-              width="100%"
             />
             <FormErrorMessage>Escreva sobre o profissonal</FormErrorMessage>
         </FormControl>
         </Flex>
-      </Grid>
-      <Grid
-        templateColumns="1fr 1fr 1fr "
-        gap={3}
-        backgroundColor="#f1f0ef"
-      >
-        <Flex direction="column" align="flex-start" width="400px" padding="10px">
+      </NewGrid>
+
+      <NewGrid>
+        <Flex id="flexName" direction="column" align="flex-start" width="33.3%" padding="10px">
           <Heading marginBottom={-5} color="gray.600" fontWeight="500" size="md"padding="5px" mb="-15px">
             Tipo de documento
           </Heading>
-          <FormControl isInvalid={errorDocDescription}>
-            <Input
+          <FormControl isInvalid={errorDocDescription} width="100%">
+            <NewInput
               name="docDescription"
               align="center"
               onBlur={handleDocDescriptionError}
@@ -655,18 +651,17 @@ export default function Content() {
               type="text"
               placeholder="CRP"
               errorBorderColor="crimson"
-              width="400px"
-              mt="15px"
+                  mt="15px"
             />
             <FormErrorMessage>Preencha o tipo do documento</FormErrorMessage>
           </FormControl>
         </Flex>
-        <Flex direction="column" align="flex-start" width="400px" padding="10px">
+        <Flex id="flexName" direction="column" align="flex-start" width="33.3%" padding="10px">
         <Heading marginBottom={-5} color="gray.600" fontWeight="500" size="md"padding="5px" mb="-15px">
           Número do documento
         </Heading>
-        <FormControl isInvalid={errorDocValue}>
-          <Input
+        <FormControl isInvalid={errorDocValue} width="100%">
+          <NewInput
             name="docValue"
             align="center"
             onBlur={handleDocValueError}
@@ -675,19 +670,18 @@ export default function Content() {
             type="text"
             placeholder="1234/6"
             errorBorderColor="crimson"
-            width="400px"
             mt="15px"
 
           />
           <FormErrorMessage>Preencha o número do documento</FormErrorMessage>
         </FormControl>
       </Flex>
-      <Flex direction="column" align="flex-start" width="400px" padding="10px">
+      <Flex id="flexName" direction="column" align="flex-start" width="33.3%" padding="10px">
         <Heading marginBottom={-5} color="gray.600" fontWeight="500" size="md"padding="5px" mb="-15px">
           Valor por consulta
         </Heading>
-        <FormControl isInvalid={errorValue}>
-        <Input
+        <FormControl isInvalid={errorValue} width="100%">
+        <NewInput
           name="value"
           align="center"
           onBlur={handleValueError}
@@ -696,24 +690,19 @@ export default function Content() {
           type="number"
           placeholder="R$ 150,00"
           errorBorderColor="crimson"
-          width="400px"
           mt="15px"
         />
         <FormErrorMessage>Preencha o valor por consulta</FormErrorMessage>
         </FormControl>
       </Flex>
-      </Grid>
-      <Grid
-        templateColumns="1fr 1fr"
-        gap={3}
-        backgroundColor="#f1f0ef"
-      >
-        <Flex direction="column" align="flex-start" width="650px" padding="10px">
+      </NewGrid>
+      <NewGrid>
+        <Flex id="flexName" direction="column" align="flex-start" width="50%" padding="10px">
           <Heading marginBottom={-5} color="gray.600" fontWeight="500" size="md"padding="5px" mb="-15px">
             Link da página pessoal
           </Heading>
 
-          <Input
+          <NewInput
             name="pageUrl"
             align="center"
             onChange={(p) => setPageUrl(p.target.value)}
@@ -721,17 +710,16 @@ export default function Content() {
             type="text"
             placeholder="https://www.linkedin.com/"
             errorBorderColor="crimson"
-            width="650px"
+            width="100%"
             mt="15px"
-
           />
         </Flex>
-        <Flex direction="column" align="flex-start" width="650px" padding="10px">
+        <Flex id="flexName" direction="column" align="flex-start" width="50%" padding="10px">
         <Heading marginBottom={-5} color="gray.600" fontWeight="500" size="md"padding="5px" mb="-15px">
         Link do vídeo de apresentação
         </Heading>
 
-        <Input
+        <NewInput
           name="videoUrl"
           align="center"
           onChange={(v) => setVideoUrl(v.target.value)}
@@ -739,42 +727,35 @@ export default function Content() {
           type="text"
           placeholder="https://www.youtube.com/"
           errorBorderColor="crimson"
-          width="650px"
+          width="100%"
           mt="15px"
-
         />
       </Flex>
-      </Grid>
-      <Grid
-        templateColumns="1fr 1fr"
-        gap={3}
-        backgroundColor="#f1f0ef"
-      >
-        <Flex direction="column" align="flex-start" width="600px" padding="10px">
+      </NewGrid>
+      <NewGrid>
+        <Flex id="flexName" direction="column" align="flex-start" width="50%" padding="10px">
           <Heading marginBottom={-5} color="gray.600" fontWeight="500" size="md"padding="5px" mb="-15px">
             Graduação ou curso
           </Heading>
-            <Flex direction="row">
-              <FormControl isInvalid={errorCollege}> 
-                  <Input
-                    name="college"
-                    align="center"
-                    onBlur={handleCollegeError}
-                    onChange={(c) => setCollege(c.target.value)}
-                    value={college}
-                    type="text"
-                    placeholder="Faculdade Federal de SP"
-                    errorBorderColor="crimson"
-                    width="600px"
-                  mt="15px"
-
-                  />
-                <FormErrorMessage>Preencha a formação</FormErrorMessage>
-              </FormControl>
-              <Button onClick={() => hanldeGraduate(college)} background="#6E8BC6" variant="solid" color="#fff" mt="15px" ml="10px">
-                + 
-              </Button>
-            </Flex>
+          <Flex direction="row" width="100%">
+            <FormControl isInvalid={errorCollege} width="100%">
+              <NewInput
+                name="college"
+                align="center"
+                onBlur={handleCollegeError}
+                onChange={(c) => setCollege(c.target.value)}
+                value={college}
+                type="text"
+                placeholder="Faculdade Federal de SP"
+                errorBorderColor="crimson"
+                mt="15px"
+              />
+              <FormErrorMessage>Preencha a formação</FormErrorMessage>
+            </FormControl>
+            <Button onClick={() => hanldeGraduate(college)} background="#6E8BC6" variant="solid" color="#fff" mt="15px" ml="10px">
+              + 
+            </Button>
+          </Flex>
 
           <Flex direction="column" p="5px">
             {graduates?.map((graduate, index) => (
@@ -788,16 +769,16 @@ export default function Content() {
               </Flex>
             ))}
           </Flex>
-
         </Flex>
-        <Flex direction="column" align="flex-start" width="600px" padding="10px">
+
+        <Flex id="flexName" direction="column" align="flex-start" width="50%" padding="10px">
         <Heading marginBottom={-5} color="gray.600" fontWeight="500" size="md"padding="5px" mb="-15px">
         Experiências profissionais
         </Heading>
 
-        <Flex direction="row">
-          <FormControl isInvalid={errorSpecialty}> 
-            <Input
+        <Flex direction="row" width="100%">
+          <FormControl isInvalid={errorSpecialty} width="100%">
+            <NewInput
               name="specialty"
               align="center"
               onBlur={handleSpecialtyError}
@@ -806,9 +787,7 @@ export default function Content() {
               type="text"
               placeholder="5 anos de experiência na área organizacional"
               errorBorderColor="crimson"
-              width="600px"
               mt="15px"
-
             />
             <FormErrorMessage>Preencha a experiência profissional</FormErrorMessage>
           </FormControl>
@@ -830,18 +809,15 @@ export default function Content() {
           ))}
         </Flex>
       </Flex>
-      </Grid>
-      <Grid
-        templateColumns="1fr"
-        gap={3}
-        backgroundColor="#f1f0ef"
-      >
-        <Flex direction="column" align="flex-start" width="650px" padding="10px">
+      </NewGrid>
+
+      <NewGridEsp style={{justifyContent: 'flex-start'}}>
+        <Flex id="flexName" direction="column" align="flex-start" width="50%" padding="10px">
           <Heading marginBottom={-5} color="gray.600" fontWeight="500" size="md"padding="5px" mb="-15px">
             Especialidades
           </Heading>
-          <FormControl isInvalid={errorEspecialties}> 
-            <Input
+          <FormControl isInvalid={errorEspecialties} width="100%"> 
+            <NewInput
               name="specialties"
               align="center"
               onBlur={handleEspecialtiesError}
@@ -850,7 +826,6 @@ export default function Content() {
               type="text"
               placeholder="Ansiedade"
               errorBorderColor="crimson"
-              width="650px"
               mt="15px"
             />
             <FormErrorMessage>Escolha ao menos uma especialidade</FormErrorMessage>
@@ -858,7 +833,7 @@ export default function Content() {
         </Flex>
 
         {display && (
-          <SubjectView>
+          <SubjectView id="flexBox">
             {subjects
               .filter(
                 ({description}) =>
@@ -893,7 +868,7 @@ export default function Content() {
           ))}
         </Flex>
       
-      </Grid>
+      </NewGridEsp>
       <Grid
         templateColumns="1fr"
         gap={3}
@@ -902,6 +877,7 @@ export default function Content() {
       >
         <Flex backgroundColor="#f1f0ef" justifyContent="center">
           <Button
+            id="btn"
             width="400px"
             mt={4}
             isLoading={loading}
@@ -915,5 +891,7 @@ export default function Content() {
         </Flex>
       </Grid>
     </form>
+    </Container>
+
   );
 }

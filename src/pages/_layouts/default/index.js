@@ -11,7 +11,9 @@ export default function DefaultLayout({ children }) {
     <Wrapper>
       <Header />
       <Content>
-        <Menu />
+        <div className="menu">
+          <Menu />  
+        </div>
         {children}
       </Content>
     </Wrapper>

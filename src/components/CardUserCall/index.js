@@ -13,12 +13,9 @@ import {
   MenuItem,
 } from "@chakra-ui/core";
 
-import {
-  MdCheck,
-  MdClose,
-  MdSettings,
-  MdMoreHoriz,
-} from "react-icons/md";
+import { MdCheck, MdClose } from "react-icons/md";
+
+import {Container} from './styles'
 
 import { getProfileById } from "../../store/modules/list/actions";
 
@@ -41,13 +38,7 @@ function CardUserCall({ data }) {
   }
 
   return (
-    <Flex
-      flexDirection="column"
-      backgroundColor="white"
-      height="140px"
-      // width="276px"
-      p="20px"
-    >
+    <Container>
       <Flex flexDirection="rows">
         <Avatar src={data.photoUrl} width="64px" height="64px" rounded="32px">
           <Menu>
@@ -62,7 +53,7 @@ function CardUserCall({ data }) {
             >
               <Icon as={data.professional.active ? MdCheck : MdClose} size="13px" color="white" />
             </AvatarBadge>
-            <MenuList backgroundColor="white">
+            <MenuList bg="#fff">
               <MenuItem 
                 onClick={() => handleProfessionalStatus(data)}
               >
@@ -82,32 +73,13 @@ function CardUserCall({ data }) {
           </Heading>
         </Flex>
       </Flex>
-      <Flex mt="20px">
-        <Menu>
-          <MenuButton
-            as={Button}
-            border="0px"
-            _hover={{ bg: "gray.310" }}
-            rounded="0px"
-            backgroundColor="white"
-            width="22px"
-            height="22px"
-          >
-            <Icon as={MdMoreHoriz} size="22px" color="black" />
-          </MenuButton>
-          <MenuList backgroundColor="white">
-            <MenuItem 
-              onClick={handleUpdateProfessional}
-            >
-              <Icon as={MdSettings} size="20px" color="gray.700" mr="10px" />
-              <Heading fontSize="16px" color="black" fontWeight="normal">
-                Editar Profissional
-              </Heading>
-            </MenuItem>
-          </MenuList>
-        </Menu>
+      <Flex mt="5px" mr="-10px" flexDirection="flex-end" align="flex-end" alignSelf="flex-end">
+        <Button onClick={handleUpdateProfessional} bg="#6E8BC6" variant="solid" color="#fff">
+          Editar
+        </Button>
+        
       </Flex>
-    </Flex>
+    </Container>
   );
 }
 

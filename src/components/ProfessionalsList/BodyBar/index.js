@@ -1,20 +1,13 @@
 import React from "react";
-import { Flex, Heading, Button } from "@chakra-ui/core";
+import { Heading, Button } from "@chakra-ui/core";
 
 import history from "../../../services/history";
 
+import { Container } from './styles';
+
 function BodyBar() {
   return (
-    <Flex
-      gridArea="bodybar"
-      // flex="1"
-      backgroundColor="#f1f0ef"
-      borderBottomWidth="1px"
-      justifyContent="space-between"
-      alignItems="center"
-      paddingLeft="20px"
-      paddingRight="20px"
-    >
+    <Container gridArea="bodybar">
       <Heading
         fontWeight="500"
         fontSize="24px"
@@ -28,7 +21,7 @@ function BodyBar() {
         Adicionar +
       </Button>
 
-    </Flex>
+    </Container>
   );
 }
 

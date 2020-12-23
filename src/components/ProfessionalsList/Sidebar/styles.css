@@ -1,0 +1,10 @@
+div .sidebar {
+  display: flex;
+  /* margin-top: 20px; */
+
+  @media (max-width: 560px) {
+    display: none;
+    height: 0;
+    width: 0;
+  }
+}

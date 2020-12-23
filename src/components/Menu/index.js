@@ -9,6 +9,8 @@ import {
 } from "@chakra-ui/core";
 import { MdPerson } from "react-icons/md";
 
+import './styles.css'
+
 import history from "../../services/history";
 
 function Menu() {
@@ -20,6 +22,7 @@ function Menu() {
       width="65px"
       flex="1"
       pb="20px"
+      className="menu"
     >
       <Tabs orientation="vertical">
         <TabList>
