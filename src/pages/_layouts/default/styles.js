@@ -5,12 +5,14 @@ export const Wrapper = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
+  max-width: 1920px;
 `;
 
 export const Content = styled.div`
   display: flex;
   flex-direction: row;
   height: 100%;
+  max-width: 1920px;
 
   div .menu {
     display: flex;

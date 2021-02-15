@@ -12,7 +12,7 @@ export default function DefaultLayout({ children }) {
       <Header />
       <Content>
         <div className="menu">
-          <Menu />  
+          <Menu />
         </div>
         {children}
       </Content>

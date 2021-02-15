@@ -32,6 +32,8 @@ export default function Header() {
       backgroundColor="purple.600"
       alignItems="center"
       justifyContent="flex-end"
+      maxW="1920px"
+      width="100%"
     >
       <Menu>
         <MenuButton
@@ -42,12 +44,7 @@ export default function Header() {
           height="47px"
           rounded="0px"
         >
-          <Image
-            src={avatar}
-            alt={name}
-            rounded="full"
-            size="40px"
-          />
+          <Image src={avatar} alt={name} rounded="full" size="40px" />
         </MenuButton>
         <MenuList backgroundColor="white">
           <MenuItem onClick={() => handleSignOut()}>

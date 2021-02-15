@@ -1,15 +1,8 @@
 import React from "react";
-import {
-  Flex,
-  Icon,
-  Heading,
-  Tabs,
-  TabList,
-  Tab,
-} from "@chakra-ui/core";
+import { Flex, Icon, Heading, Tabs, TabList, Tab } from "@chakra-ui/core";
 import { MdPerson } from "react-icons/md";
 
-import './styles.css'
+import "./styles.css";
 
 import history from "../../services/history";
 

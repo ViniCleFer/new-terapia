@@ -1,10 +1,14 @@
 import styled from "styled-components";
-import { Form, Input } from "@rocketseat/unform";
+import { Input } from "@rocketseat/unform";
 import { darken } from "polished";
 
 export const Container = styled.div`
-  flex: 1;
-  margin: 60px 200px;
+  flex-direction: column;
+  /* background-color: #f00; */
+  height: calc(100% -47px);
+  width: 100%;
+  max-width: 1855px;
+  display: flex;
 `;
 
 export const Time = styled.li`
@@ -261,7 +265,7 @@ export const HeaderDiv = styled.div`
 `;
 
 export const TextButton = styled.h1`
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   -webkit-font-smoothing: antialiased;
   font-style: normal;
   font-weight: normal;
@@ -271,7 +275,7 @@ export const TextButton = styled.h1`
 `;
 
 export const HeaderModal = styled.h1`
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   -webkit-font-smoothing: antialiased;
   font-style: normal;
   font-weight: bold;
@@ -280,7 +284,7 @@ export const HeaderModal = styled.h1`
   color: black;
 `;
 export const Title = styled.h1`
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   -webkit-font-smoothing: antialiased;
   font-style: normal;
   font-weight: bold;

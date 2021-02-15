@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 import { Flex } from "@chakra-ui/core";
 
 export const Container = styled(Flex)`
@@ -7,11 +7,8 @@ export const Container = styled(Flex)`
   height: 140px;
   width: 284px;
   padding: 20px;
-  margin-top: 20px;
-
-  & + div {
-    margin-left: 20px;
-  }
+  display: flex;
+  border-radius: 4px;
 
   @media (max-width: 1300px) {
     width: 100%;
